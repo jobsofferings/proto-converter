@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+service BuildRequest {
+    // get proto config
+    rpc GetConfig (Empty) returns (GetConfigResponse) {
+    }
+    // list proto config
+    rpc ListConfig (ListConfigRequest) returns (ListConfigResponse) { // this comment will be ignore
+    }
+
+    rpc SetConfig (SetConfigRequest) returns (SetConfigResponse) {
+    }
+}
+
+message Empty {}
+
+message GetConfigRequest {
+  string config_name = 1;
+}
+
+message GetConfigResponse {
+  string name = 1;
+  string path = 2;
+}
+
+message ListConfigRequest {
+  repeated string config_name = 1;
+}
+
+message ListConfigResponse {
+  repeated GetConfigResponse configs = 1;
+}
+
+message SetConfigRequest {
+  string name = 1;
+  string path = 2;
+}
+
+message SetConfigResponse {
+  string config_name = 1;
+}

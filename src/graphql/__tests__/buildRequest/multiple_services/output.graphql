@@ -1,0 +1,9 @@
+type Query {
+  buildRequest_getSameName(req: ListConfigRequest_Input): ListConfigResponse
+  anotherRequest_getSameName(req: ListConfigRequest_Input): ListConfigResponse
+}
+
+type Mutation {
+  buildRequest_sameMutationName(req: ListConfigRequest_Input): ListConfigResponse
+  anotherRequest_sameMutationName(req: ListConfigRequest_Input): ListConfigResponse
+}

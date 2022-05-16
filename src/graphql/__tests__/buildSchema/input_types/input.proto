@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+service RpcService{
+    rpc addUser(UserInfo) returns(UserInfo){}
+    rpc setUser(UniqueReq) returns(UserInfo){}
+}
+
+message UserInfo {
+    string name = 1;
+    int32 age = 2;
+    Address address = 3;
+}
+
+message Address {
+    string province = 1;
+    string city = 2;
+}
+
+message UniqueReq {
+    string field_a = 1;
+}
