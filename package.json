@@ -6,12 +6,12 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "build": "rm -rf lib && tsc -p ./tsconfig.build.json",
-    "test": "jest",
     "test-coverage": "jest --collectCoverage",
     "preversion": "npm run format && npm run lint && npm run test",
     "version": "npm run build",
     "postversion": "git push && git push --tags",
     "format": "prettier --write --parser typescript \"src/**/*.ts\"",
+    "test": "jest",
     "lint": "eslint --ext .ts src"
   },
   "lint-staged": {
