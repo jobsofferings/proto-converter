@@ -1,5 +1,5 @@
 {
-  "name": "proto-converter3",
+  "name": "@whale/proto-converter3",
   "version": "0.0.1",
   "description": "converts proto to GraphQL schema",
   "main": "lib/index.js",

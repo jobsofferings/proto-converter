@@ -5,7 +5,7 @@ import { customInspect } from './utils/log'
 
 async function main() {
   const config = getBasicProtoConfig()
-  if (config) {
+  if (config?.protoPath && config?.serviceName) {
     await converter(config.protoPath, config.serviceName)
   } else {
     inquirer

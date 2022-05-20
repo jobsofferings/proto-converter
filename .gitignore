@@ -14,3 +14,6 @@ coverage/
 
 # proto
 proto/
+
+#config
+proto-converter.config.js
