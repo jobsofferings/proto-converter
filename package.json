@@ -1,11 +1,12 @@
 {
   "name": "proto-converter3",
   "version": "0.0.1",
-  "description": "converts proto to GraphQL schema ",
+  "description": "converts proto to GraphQL schema",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
     "build": "rm -rf lib && tsc -p ./tsconfig.build.json",
+    "start": "ts-node ./src/cli.ts",
     "test-coverage": "jest --collectCoverage",
     "preversion": "npm run format && npm run lint && npm run test",
     "version": "npm run build",
@@ -42,10 +43,10 @@
   ],
   "author": "jobsofferings",
   "license": "MIT",
-  "homepage": "https://github.com/whale-labs/proto-converter/#readme",
+  "homepage": "https://github.com/jobsofferings/proto-converter/blob/master/README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whale-labs/proto-converter.git"
+    "url": "git@github.com:jobsofferings/proto-converter.git"
   },
   "bugs": {
     "url": "https://github.com/whale-labs/proto-converter/issues"
@@ -80,6 +81,7 @@
     "husky": "^4.3.0",
     "jest": "^26.1.0",
     "lint-staged": "^10.5.1",
+    "ts-node": "^10.7.0",
     "typescript": "^3.9.6"
   }
 }

@@ -12,3 +12,5 @@ coverage/
 .vscode
 *.log
 
+# proto
+proto/

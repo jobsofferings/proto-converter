@@ -1,8 +1,19 @@
 import * as shell from 'shelljs'
-import { errorTip, successTip } from './log'
+import { errorTip, successTip, warnTip } from './log'
 import { format, Options as PrettierOptions } from 'prettier'
-import { PROJECT_PATH, PRETTIER_CONFIG, FILENAME_COMBINATOR } from './config'
-import { camelCase, isFunction, isObject, isString } from 'lodash'
+import {
+  PROJECT_PATH,
+  PRETTIER_CONFIG,
+  FILENAME_COMBINATOR,
+  CONFIG_PATH,
+} from './config'
+import {
+  camelCase,
+  isFunction,
+  isObject,
+  isPlainObject,
+  isString,
+} from 'lodash'
 import { LINE_FEED } from './constants'
 
 export * from './config'
@@ -145,4 +156,23 @@ export const assembleComment = (
   return comment
     ? `${label}${comment.replace(/\n/g, '')}${inline ? LINE_FEED : ''}`
     : ''
+}
+
+// 如果存在 protoPath 和 serviceName 则获取
+export const getBasicProtoConfig = () => {
+  if (!doesPathExist(CONFIG_PATH)) {
+    return null
+  }
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const tempConfig = require(CONFIG_PATH)
+    if (!isPlainObject(tempConfig)) {
+      quitProcess('config need to be a object')
+    }
+    const { protoPath, serviceName } = tempConfig
+    return { protoPath, serviceName }
+  } catch (error) {
+    warnTip(`failed to read config file: ${error}`)
+  }
+  return null
 }
